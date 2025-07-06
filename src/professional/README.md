@@ -1,9 +1,9 @@
 ---
-title: 标准版
+title: 专业版
 index: false
-icon: lightbulb
+icon: rocket
 category:
-  - 标准版
+  - 专业版
 head:
   - - meta
     - name: description

@@ -1,5 +1,5 @@
 ---
-title: 安装
+title: 专业版安装
 icon: download
 order: 2
 category:
@@ -7,16 +7,30 @@ category:
 head:
   - - meta
     - name: description
-      content: TaskPyro安装部署指南，包含Python爬虫管理平台的环境配置、依赖安装和启动运行等详细步骤
+      content: TaskPyro专业版安装部署指南，包含分布式架构的主控节点和工作节点部署、环境配置等详细步骤
   - - meta
     - name: keywords
-      content: TaskPyro,Python爬虫平台安装,任务调度系统部署,环境配置,依赖安装,平台启动
+      content: TaskPyro专业版,分布式部署,主控节点,工作节点,Docker部署,Windows节点,Linux节点
 footer: <a href="https://beian.miit.gov.cn">粤ICP备2024213187号-2</a> © 2025-至今 TaskPyro
 ---
 
-# Docker 安装
+# 专业版分布式部署
 
-TaskPyro 提供了基于 Docker 的快速部署方案，让您能够轻松地在任何支持 Docker 的环境中运行。
+TaskPyro 专业版，支持主控节点（Docker）+ 多个工作节点（Windows/Linux）的部署模式，为企业提供高可用、高性能的任务调度解决方案。
+
+## 架构概述
+
+- **主控节点**：使用 Docker 部署，负责任务调度、监控管理、用户界面等核心功能，**同时也支持本机任务执行**
+- **工作节点**：支持 Windows 和 Linux 系统，无需 Docker 环境，负责具体任务执行
+- **统一管理**：主控节点统一管理所有工作节点，实现集中化的任务调度和监控
+- **灵活部署**：可以仅部署主控节点进行单机使用，也可以添加多个工作节点构建分布式集群
+
+# 主控节点部署（Docker）
+
+主控节点是 TaskPyro 专业版的核心组件，不仅提供任务调度、监控管理、用户界面等管理功能，**同时也具备完整的任务执行能力**。这意味着：
+
+- **单机模式**：仅部署主控节点即可完成所有任务的调度和执行
+- **混合模式**：主控节点既可以执行任务，也可以管理其他工作节点
 
 ## 前置条件
 
@@ -31,22 +45,26 @@ TaskPyro 提供了基于 Docker 的快速部署方案，让您能够轻松地在
 - Docker Compose（版本 2.0.0 或更高，本人使用2.27.1版本）
 - 注意：如果您使用的是 Docker 26.1.0 版本，建议安装最新版本的 Docker Compose 以确保兼容性
 
-## 安装步骤
+## 主节点安装步骤
 ### 0. 拉取代码
 
 gitub
 ```bash
 git clone https://github.com/taskPyroer/taskpyro.git
-
-cd v1
+```
+```bash
+# 进入到v2版本的文件
+cd v2
 ```
 
 gitee
 
 ```bash
 git clone https://gitee.com/taskPyroer/taskpyrodocker.git
-
-cd v1
+```
+```bash
+# 进入到v2版本的文件
+cd v2
 ```
 
 > 可以直接拉取上面的代码，或者按下面的1、2、3步骤创建文件
@@ -67,7 +85,7 @@ version: '3'
 
 services:
   frontend:
-    image: crpi-7ub5pdu5y0ps1uyh.cn-hangzhou.personal.cr.aliyuncs.com/taskpyro/taskpyro-frontend:1.0
+    image: crpi-7ub5pdu5y0ps1uyh.cn-hangzhou.personal.cr.aliyuncs.com/taskpyro/taskpyro-frontend:2.0
     ports:
       - "${FRONTEND_PORT:-7789}:${FRONTEND_PORT:-7789}"
     environment:
@@ -82,7 +100,7 @@ services:
       - api
 
   api:
-    image: crpi-7ub5pdu5y0ps1uyh.cn-hangzhou.personal.cr.aliyuncs.com/taskpyro/taskpyro-api:1.0
+    image: crpi-7ub5pdu5y0ps1uyh.cn-hangzhou.personal.cr.aliyuncs.com/taskpyro/taskpyro-api:2.0
     ports:
       - "${BACKEND_PORT:-8000}:${BACKEND_PORT:-8000}"
     environment:
@@ -122,6 +140,69 @@ docker-compose up -d
 ### 5. 默认账号密码
 账号： admin
 密码： admin123
+
+# 工作节点部署（可选）
+
+工作节点是执行具体任务的计算节点，支持 Windows 和 Linux 系统，无需 Docker 环境。
+
+::: tip 重要说明
+工作节点部署是**可选的**。主控节点本身就具备完整的任务执行能力，可以独立完成所有任务的调度和执行。添加工作节点的主要目的是：
+
+- **扩展计算能力**：增加更多计算资源处理大量任务
+- **跨平台支持**：在不同操作系统上执行特定任务
+- **负载分担**：将任务执行负载分散到多个节点
+- **高可用性**：提供任务执行的冗余和故障转移能力
+:::
+
+如果您只需要基本的任务调度功能，仅部署主控节点即可满足需求。
+
+## Windows 工作节点部署
+
+### 前置条件
+- Windows 10/11 或 Windows Server 2016 及以上版本
+- Python 3.8 或更高版本
+- 网络连接到主控节点
+
+### 安装步骤
+
+#### 1. 下载工作节点程序
+
+gitub
+```bash
+git clone https://github.com/taskPyroer/taskpyro.git
+```
+```bash
+# 进入到v2版本的文件
+cd v2/windows-server
+
+```
+
+gitee
+
+```bash
+git clone https://gitee.com/taskPyroer/taskpyrodocker.git
+```
+```bash
+# 进入到v2版本的文件
+cd v2/windows-server
+```
+
+#### 2. 配置端口
+
+将.env.exemple重命名为 `.env` 文件：
+
+```
+SERVER_PORT=80001
+```
+修改SERVER_PORT为指定的端口号，注意需要将Windows的端口防火墙打开，若不清楚可上网查询Windows下如何开放指定端口
+
+#### 3. 启动工作节点
+
+双击运行install_and_start.bat文件，即可自动安装程序；如下：
+
+![TaskPyro微服务节点界面](../professional_images/windows-server.png)
+
+
 
 ## 安装注意事项
 

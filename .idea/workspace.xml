@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5768b12-c1c6-4a8a-b8e8-2d4f607bbd14" name="更改" comment="" />
+    <list default="true" id="d5768b12-c1c6-4a8a-b8e8-2d4f607bbd14" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/src/disclaimer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/navbar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/navbar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.vuepress/sidebar.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/.vuepress/sidebar.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/changelog/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/changelog/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/guide/setting.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/guide/setting.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/price/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/price/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +22,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2tsk62KYzoM4aXjXNddnzzqIqjO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,6 +37,10 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/WebProjets/taskpyro-docs",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -32,8 +48,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
-        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -46,6 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1741147991616</updated>
       <workItem from="1741147992727" duration="50000" />
+      <workItem from="1751700239719" duration="1919000" />
     </task>
     <servers />
   </component>

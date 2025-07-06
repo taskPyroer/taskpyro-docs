@@ -4,7 +4,14 @@ export default sidebar({
   "/": [
     "",
     {
-      text: "使用指南",
+      text: "专业版使用指南",
+      icon: "lightbulb",
+      prefix: "professional/",
+      link: "professional/",
+      children: "structure",
+    },
+    {
+      text: "标准版使用指南",
       icon: "lightbulb",
       prefix: "guide/",
       link: "guide/",

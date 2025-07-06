@@ -13,6 +13,12 @@ export default sidebar({
     "price/",
     "exchange/",
     "cooperation/",
-    "personal/"
+    "personal/",
+    {
+      text: "免责声明",
+      icon: "info",
+      prefix: "disclaimer/",
+      link: "disclaimer/",
+    }
   ],
 });

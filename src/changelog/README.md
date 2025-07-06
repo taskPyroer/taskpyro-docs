@@ -12,6 +12,11 @@ head:
 footer: <a href="https://beian.miit.gov.cn">粤ICP备2024213187号-2</a> © 2025-至今 TaskPyro
 ---
 
+# 下一个版本计划
+
+- 支持Linux/Windows，主从分布式的部署调度
+- 更细致的监控状态展示
+
 # 更新日志
 
 ## v1.4.0 (2025-05-25)

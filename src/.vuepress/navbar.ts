@@ -8,4 +8,5 @@ export default navbar([
   "/exchange/",
   "/cooperation/",
   "/personal/",
+  "/disclaimer/",
 ]);

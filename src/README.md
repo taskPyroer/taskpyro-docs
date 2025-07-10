@@ -15,7 +15,7 @@ head:
       content: TaskPyro是一个强大的Python任务调度与爬虫管理平台，提供标准版和专业版两种选择，支持灵活的环境管理、智能任务调度、可视化监控以及企业级分布式架构，特别适合爬虫任务和数据处理任务的管理
   - - meta
     - name: keywords
-      content: TaskPyro,Python爬虫管理平台,任务调度系统,爬虫框架,数据采集工具,定时任务管理,Python环境管理,分布式任务调度,企业级监控,多用户权限管理
+      content: TaskPyro,Python爬虫管理平台,分布式爬虫管理平台,任务调度系统,爬虫框架,数据采集工具,定时任务管理,Python环境管理,分布式任务调度,企业级监控,多用户权限管理
 actions:
   - text: 标准版文档
     icon: lightbulb

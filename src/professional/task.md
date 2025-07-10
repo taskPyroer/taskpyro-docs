@@ -1,5 +1,5 @@
 ---
-title: 任务管理
+title: 任务管理（含分布式）
 icon: proicons:task-list
 order: 6
 category:

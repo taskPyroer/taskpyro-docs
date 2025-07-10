@@ -67,7 +67,7 @@ TaskPyro专业版支持分布式架构，通过主控节点和工作节点的分
 
 3. **填写节点信息**
    ```
-   节点IP：192.168.1.100
+   节点IP：172.168.1.100
    节点端口：8001
    节点名称：Windows节点-1
    节点描述：用于执行Windows相关任务
@@ -115,16 +115,19 @@ cd v2/windows-server
 
 #### 2. 配置端口
 
-将.env.exemple重命名为 `.env` 文件：
+修改 `.env` 文件：
 
 ```
-SERVER_PORT=80001
+SERVER_PORT=8001
+PYTHON_EXECUTABLE=D:\Programs\Python\Python311\python.exe
 ```
 修改SERVER_PORT为指定的端口号，注意需要将Windows的端口防火墙打开，若不清楚可上网查询Windows下如何开放指定端口
 
+PYTHON_EXECUTABLE=Python解释器路径配置，如果不设置，将使用系统默认的exe的python版本3.9+
+
 #### 3. 启动工作节点
 
-双击运行install_and_start.bat文件，即可自动安装程序；如下：
+双击运行windows_executor.exe文件，即可直接启动；如下：
 
 ![TaskPyro微服务节点界面](../professional_images/windows-server.png)
 
@@ -157,3 +160,5 @@ SERVER_PORT=80001
    # 检查防火墙设置
    netstat -an | grep 8001
    ```
+
+windows节点的端口开放参考网站的教程：https://blog.csdn.net/idjdkdjsj/article/details/148389687

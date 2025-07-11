@@ -38,6 +38,8 @@ TaskPyro 专业版提供了全面的监控功能，通过直观的仪表盘界�
 
 ![专业版仪表盘-每小时定时任务详细分布界面](../professional_images/dashboard-chart4.png)
 
+![专业版仪表盘-任务执行甘特图界面](../professional_images/dashboard-chart5.png)
+
 # 系统概览
 
 系统概览界面是TaskPyro专业版的核心监控面板，提供了整个分布式集群的全局视图和关键指标展示。

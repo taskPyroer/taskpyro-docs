@@ -25,40 +25,61 @@ TaskPyro 提供了基于 Docker 的快速部署方案，让您能够轻松地在
 ### Docker 安装
 
 - Docker（本人使用的版本为 26.10.0，低于此版本安装可能会存在问题，建议删除旧版本，升级新版本docker）
+- 详细的Docker安装指南请参考：[Docker安装文档](/docker/)
 
 ### Docker Compose 安装
 
 - Docker Compose（版本 2.0.0 或更高，本人使用2.27.1版本）
 - 注意：如果您使用的是 Docker 26.1.0 版本，建议安装最新版本的 Docker Compose 以确保兼容性
+- 详细的Docker Compose安装指南请参考：[Docker安装文档](/docker/)
 
 ## 安装步骤
-### 0. 拉取代码
 
-gitub
+安装 TaskPyro 有两种方式：**直接拉取代码**（推荐）或**手动创建文件**。请选择其中一种方式进行安装。
+
+### 方式一：直接拉取代码（推荐）
+
+这是最简单的安装方式，只需几个命令即可完成部署。
+
+#### 从 GitHub 拉取
+
 ```bash
+# 1. 克隆代码仓库
 git clone https://github.com/taskPyroer/taskpyro.git
 
-cd v1
+# 2. 进入v1版本目录
+cd taskpyro/v1
+
+# 3. 启动服务
+docker-compose up -d
 ```
 
-gitee
+#### 从 Gitee 拉取（国内推荐）
 
 ```bash
+# 1. 克隆代码仓库
 git clone https://gitee.com/taskPyroer/taskpyrodocker.git
 
-cd v1
+# 2. 进入v1版本目录
+cd taskpyrodocker/v1
+
+# 3. 启动服务
+docker-compose up -d
 ```
 
-> 可以直接拉取上面的代码，或者按下面的1、2、3步骤创建文件
+### 方式二：手动创建文件
 
-### 1. 创建项目目录
+如果您无法直接拉取代码，可以按照以下步骤手动创建必要的文件。
+
+#### 1. 创建项目目录
 
 ```bash
-mkdir taskpyro
+# 创建并进入项目目录
+mkdir -p taskpyro
 cd taskpyro
 ```
 
-### 2. 创建 docker-compose.yml 文件
+#### 2. 创建 docker-compose.yml 文件
 
 在项目目录中创建 `docker-compose.yml` 文件，内容如下：
 
@@ -101,27 +122,50 @@ services:
     restart: unless-stopped
 ```
 
-### 3. 创建 .env 文件
+#### 3. 创建 .env 文件
 
 在项目目录中创建 `.env` 文件，用于配置环境变量：
 
 ```env
+# 前端服务端口
 FRONTEND_PORT=8080
+# 后端服务端口
 BACKEND_PORT=9000
+# 服务器域名或IP（默认localhost，通常不需要修改）
 SERVER_NAME=localhost
+# 后端工作进程数
 WORKERS=1
 ```
 
-### 4. 启动服务
+#### 4. 启动服务
+
+如果您选择了手动创建文件的方式，完成上述步骤后，执行以下命令启动服务：
 
 ```bash
+# 在项目目录中执行
 docker-compose up -d
 ```
-启动后直接在浏览器中访问至 http://<your_ip>:8080
 
-### 5. 默认账号密码
-账号： admin
-密码： admin123
+### 访问系统
+
+无论您选择哪种安装方式，服务启动后，都可以通过浏览器访问系统：
+
+```
+http://<your_ip>:8080
+```
+
+将 `<your_ip>` 替换为您服务器的实际 IP 地址或域名。如果是在本机安装，可以使用 `localhost`。
+
+### 默认账号密码
+
+首次登录系统时，请使用以下默认账号密码：
+
+- **账号**：admin
+- **密码**：admin123
+
+::: warning 安全提示
+首次登录后，强烈建议您立即修改默认密码，以确保系统安全。
+:::
 
 ## 安装注意事项
 

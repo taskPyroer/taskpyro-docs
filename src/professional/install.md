@@ -39,44 +39,61 @@ TaskPyro 专业版，支持主控节点（Docker）+ 多个工作节点（Window
 ### Docker 安装
 
 - Docker（本人使用的版本为 26.10.0，低于此版本安装可能会存在问题，建议删除旧版本，升级新版本docker）
+- 详细的Docker安装指南请参考：[Docker安装文档](/docker/)
 
 ### Docker Compose 安装
 
 - Docker Compose（版本 2.0.0 或更高，本人使用2.27.1版本）
 - 注意：如果您使用的是 Docker 26.1.0 版本，建议安装最新版本的 Docker Compose 以确保兼容性
+- 详细的Docker Compose安装指南请参考：[Docker安装文档](/docker/)
 
 ## 主节点安装步骤
-### 0. 拉取代码
 
-gitub
+主节点安装有两种方式：**直接拉取代码**（推荐）或**手动创建文件**。请选择其中一种方式进行安装。
+
+### 方式一：直接拉取代码（推荐）
+
+这是最简单的安装方式，只需几个命令即可完成部署。
+
+#### 从 GitHub 拉取
+
 ```bash
+# 1. 克隆代码仓库
 git clone https://github.com/taskPyroer/taskpyro.git
-```
-```bash
-# 进入到v2版本的文件
-cd v2
+
+# 2. 进入v2版本目录
+cd taskpyro/v2
+
+# 3. 启动服务
+docker-compose up -d
 ```
 
-gitee
+#### 从 Gitee 拉取（国内推荐）
 
 ```bash
+# 1. 克隆代码仓库
 git clone https://gitee.com/taskPyroer/taskpyrodocker.git
+
+# 2. 进入v2版本目录
+cd taskpyrodocker/v2
+
+# 3. 启动服务
+docker-compose up -d
 ```
-```bash
-# 进入到v2版本的文件
-cd v2
-```
 
-> 可以直接拉取上面的代码，或者按下面的1、2、3步骤创建文件
+### 方式二：手动创建文件
 
-### 1. 创建项目目录
+如果您无法直接拉取代码，可以按照以下步骤手动创建必要的文件。
+
+#### 1. 创建项目目录
 
 ```bash
-mkdir taskpyro
+# 创建并进入项目目录
+mkdir -p taskpyro
 cd taskpyro
 ```
 
-### 2. 创建 docker-compose.yml 文件
+#### 2. 创建 docker-compose.yml 文件
 
 在项目目录中创建 `docker-compose.yml` 文件，内容如下：
 
@@ -119,27 +136,50 @@ services:
     restart: unless-stopped
 ```
 
-### 3. 创建 .env 文件
+#### 3. 创建 .env 文件
 
 在项目目录中创建 `.env` 文件，用于配置环境变量：
 
 ```env
+# 前端服务端口
 FRONTEND_PORT=8080
+# 后端服务端口
 BACKEND_PORT=9000
+# 服务器域名或IP（默认localhost，通常不需要修改）
 SERVER_NAME=localhost
+# 后端工作进程数(不需要修改)
 WORKERS=1
 ```
 
-### 4. 启动服务
+#### 4. 启动服务
+
+如果您选择了手动创建文件的方式，完成上述步骤后，执行以下命令启动服务：
 
 ```bash
+# 在项目目录中执行
 docker-compose up -d
 ```
-启动后直接在浏览器中访问至 http://<your_ip>:8080
 
-### 5. 默认账号密码
-账号： admin
-密码： admin123
+### 访问系统
+
+无论您选择哪种安装方式，服务启动后，都可以通过浏览器访问系统：
+
+```
+http://<your_ip>:8080
+```
+
+将 `<your_ip>` 替换为您服务器的实际 IP 地址或域名。如果是在本机安装，可以使用 `localhost`。
+
+### 默认账号密码
+
+首次登录系统时，请使用以下默认账号密码：
+
+- **账号**：admin
+- **密码**：admin123
+
+::: warning 安全提示
+首次登录后，强烈建议您立即修改默认密码，以确保系统安全。
+:::
 
 # 工作节点部署（可选）
 
@@ -189,16 +229,19 @@ cd v2/windows-server
 
 #### 2. 配置端口
 
-将.env.exemple重命名为 `.env` 文件：
+修改 `.env` 文件：
 
 ```
-SERVER_PORT=80001
+SERVER_PORT=8001
+PYTHON_EXECUTABLE=D:\Programs\Python\Python311\python.exe
 ```
 修改SERVER_PORT为指定的端口号，注意需要将Windows的端口防火墙打开，若不清楚可上网查询Windows下如何开放指定端口
 
+PYTHON_EXECUTABLE=Python解释器路径配置，如果不设置，将使用系统默认的exe的python版本3.9+
+
 #### 3. 启动工作节点
 
-双击运行install_and_start.bat文件，即可自动安装程序；如下：
+双击运行windows_executor.exe文件，即可直接启动；如下：
 
 ![TaskPyro微服务节点界面](../professional_images/windows-server.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 个人介绍
-icon: profile
+icon: fa6-solid:user
 order: 1
 head:
   - - meta

@@ -21,6 +21,7 @@ export default sidebar({
     "exchange/",
     "cooperation/",
     "personal/",
+    "docker/",
     {
       text: "免责声明",
       icon: "info",

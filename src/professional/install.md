@@ -32,28 +32,77 @@ TaskPyro 专业版，支持主控节点（Docker）+ 多个工作节点（Window
 - **单机模式**：仅部署主控节点即可完成所有任务的调度和执行
 - **混合模式**：主控节点既可以执行任务，也可以管理其他工作节点
 
-## 前置条件
+## 主节点安装步骤
 
-在开始安装之前，请确保您的系统已经安装了以下软件：
+主节点安装有三种方式：**一键安装脚本**（最便捷）、**直接拉取代码** 或**手动创建文件**。请选择其中一种方式进行安装。
 
-### Docker 安装
+### 方式一：一键安装脚本（最便捷，推荐）
 
+这是最便捷的安装方式，使用一键脚本自动完成 Docker 环境检查、安装和 TaskPyro 部署。
+
+#### Linux 系统一键安装
+
+使用国内镜像源（推荐）：
+
+```bash
+# 下载并执行一键安装脚本
+curl -fsSL https://gitee.com/taskPyroer/taskpyrodocker/raw/master/taskpyro-manager.sh -o taskpyro-manager.sh && chmod +x taskpyro-manager.sh && ./taskpyro-manager.sh
+```
+
+或者使用github镜像源：
+
+```bash
+# 使用 GitHub 镜像源下载脚本
+curl -fsSL https://raw.githubusercontent.com/taskPyroer/taskpyro/main/taskpyro-manager.sh -o taskpyro-manager.sh && chmod +x taskpyro-manager.sh && ./taskpyro-manager.sh
+```
+
+> 若服务器没有curl相关命令或者拉取失败，可到对应git仓库下载 taskpyro-manager.sh
+
+#### 脚本功能特性
+
+一键安装脚本提供以下功能：
+
+- **自动环境检测**：自动检测操作系统类型和版本
+- **Docker 自动安装**：如果系统未安装 Docker，脚本会自动安装最新版本
+- **Docker Compose 配置**：自动安装和配置 Docker Compose
+- **交互式配置**：引导用户配置端口、数据目录等参数
+- **版本选择**：支持选择标准版或专业版
+- **服务管理**：提供启动、停止、重启、升级等管理功能
+- **状态监控**：实时查看服务状态和日志
+- **一键卸载**：支持完整卸载功能
+
+#### 支持的操作系统
+
+该脚本已在主流操作系统上完成测试验证。如遇特殊环境或脚本安装失败的情况，建议联系作者获取技术支持，或手动安装 Docker 后再执行taskpyro-manager.sh脚本，再或者使用方式二、三进行部署
+
+#### 使用说明
+
+1. 执行脚本后，按照提示选择安装选项
+2. 脚本会自动检测并安装必要的依赖
+3. 配置完成后自动启动服务
+4. 可通过脚本菜单进行后续管理操作
+
+::: tip 提示
+一键脚本特别适合新手用户和生产环境快速部署，无需手动配置 Docker 环境。
+
+**后续管理操作**：安装完成后，如需进行服务管理（启动、停止、重启、升级等），可直接在 taskpyro-manager.sh 脚本所在目录执行 `./taskpyro-manager.sh` 命令，即可进入便捷的操作菜单。
+:::
+
+### 方式二：直接拉取代码
+
+
+#### 前置条件
+
+在使用此方式安装之前，请确保您的系统已经安装了以下软件：
+
+**Docker 安装**
 - Docker（本人使用的版本为 26.10.0，低于此版本安装可能会存在问题，建议删除旧版本，升级新版本docker）
 - 详细的Docker安装指南请参考：[Docker安装文档](/docker/)
 
-### Docker Compose 安装
-
+**Docker Compose 安装**
 - Docker Compose（版本 2.0.0 或更高，本人使用2.27.1版本）
 - 注意：如果您使用的是 Docker 26.1.0 版本，建议安装最新版本的 Docker Compose 以确保兼容性
 - 详细的Docker Compose安装指南请参考：[Docker安装文档](/docker/)
-
-## 主节点安装步骤
-
-主节点安装有两种方式：**直接拉取代码**（推荐）或**手动创建文件**。请选择其中一种方式进行安装。
-
-### 方式一：直接拉取代码（推荐）
-
-这是最简单的安装方式，只需几个命令即可完成部署。
 
 #### 从 GitHub 拉取
 
@@ -81,9 +130,22 @@ cd taskpyrodocker/v2
 docker-compose up -d
 ```
 
-### 方式二：手动创建文件
+### 方式三：手动创建文件
 
 如果您无法直接拉取代码，可以按照以下步骤手动创建必要的文件。
+
+#### 前置条件
+
+在使用此方式安装之前，请确保您的系统已经安装了以下软件：
+
+**Docker 安装**
+- Docker（本人使用的版本为 26.10.0，低于此版本安装可能会存在问题，建议删除旧版本，升级新版本docker）
+- 详细的Docker安装指南请参考：[Docker安装文档](/docker/)
+
+**Docker Compose 安装**
+- Docker Compose（版本 2.0.0 或更高，本人使用2.27.1版本）
+- 注意：如果您使用的是 Docker 26.1.0 版本，建议安装最新版本的 Docker Compose 以确保兼容性
+- 详细的Docker Compose安装指南请参考：[Docker安装文档](/docker/)
 
 #### 1. 创建项目目录
 
